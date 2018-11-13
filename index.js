@@ -38,21 +38,3 @@ app.use('/graphql', graphQlHTTP({
 const PORT = 3000
   app.listen(PORT, () => console.log(`running on ${PORT}`))
 
-// const { graphql, buildSchema } = require('graphql')
-
-// graphql(
-//  schema,
-//  `
-//   {
-//    users {
-//     id
-//     email
-//    }
-//   }
-//  `,
-//  rootValue
-// ).then(
-//  res => console.dir(res, { depth: null })
-// ).catch(
-//  console.error
-// )
