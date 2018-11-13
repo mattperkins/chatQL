@@ -1,6 +1,6 @@
 const { graphql, buildSchema } = require('graphql')
 
-const fakeDb = {
+const testDb = {
  users: [
   { id:  '1', email: 'fred@email.com', name: 'Fred'},
   { id:  '2', email: 'sandy@email.com', name: 'Sandy'}
@@ -9,7 +9,7 @@ const fakeDb = {
 
 const schema = buildSchema(`
  type Query {
-  users: User
+  users: [User!]!
  }
 
  type User {
@@ -21,14 +21,16 @@ const schema = buildSchema(`
 `)
 
 const rootValue = {
- users: () => 
+ users: () => testDb.users
 }
 
 graphql(
  schema,
  `
   {
-   message
+   users {
+    email
+   }
   }
  `,
  rootValue
