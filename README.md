@@ -15,7 +15,7 @@
 
 ### Root Query
 ```
-{
+query {
   users {
     id
     name
