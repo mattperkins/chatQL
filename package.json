@@ -2,5 +2,10 @@
   "name": "chatql",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^14.0.2"
+  },
+  "repository": "git@github.com:mattperkins/chatQL.git",
+  "author": "mattperkins <github@mattperkins.com>"
 }
