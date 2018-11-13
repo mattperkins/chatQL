@@ -6,8 +6,8 @@
 
 # SERVER
 ## ENDPOINTS 
-### localhost/graphiql
-### localhost:4000 
+### localhost:3000/graphql
+### localhost:3000 
 
 # DEPLOY 
 ## yarn build
