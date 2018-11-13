@@ -2,8 +2,8 @@ const { graphql, buildSchema } = require('graphql')
 
 const testDb = {
  users: [
-  { id:  '1', email: 'fred@email.com', name: 'Fred'},
-  { id:  '2', email: 'sandy@email.com', name: 'Sandy'}
+  { id: '1', email: 'fred@email.com', name: 'Fred'},
+  { id: '2', email: 'sandy@email.com', name: 'Sandy'}
  ]
 }
 
@@ -29,13 +29,14 @@ graphql(
  `
   {
    users {
+    id
     email
    }
   }
  `,
  rootValue
 ).then(
- console.log
+ res => console.dir(res, { depth: null })
 ).catch(
  console.error
 )
