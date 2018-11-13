@@ -1,13 +1,21 @@
 const { graphql, buildSchema } = require('graphql')
 
+
 const schema = buildSchema(`
  type Query {
-  message: String
+  users: User
+ }
+
+ type User {
+  id: ID!
+  email: String!
+  name: String
+  avatarUrl: String
  }
 `)
 
 const rootValue = {
- message: () => 'Working!'
+ users: () => 
 }
 
 graphql(
