@@ -2,12 +2,11 @@
 ## yarn 
 
 # RUN 
-## yarn start 
+## npx supervisor .
 
 # SERVER
 ## ENDPOINTS 
 ### localhost:3000/graphql
-### localhost:3000 
 
 # DEPLOY 
 ## yarn build
