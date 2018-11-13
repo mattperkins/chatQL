@@ -4,8 +4,10 @@
 # RUN 
 ## yarn start 
 
-# ENDPOINTS 
-## localhost: 
+# SERVER
+## ENDPOINTS 
+### localhost/graphiql
+### localhost:4000 
 
 # DEPLOY 
 ## yarn build
