@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "DORMshed",
+  "---":"---",
   "dependencies": {
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2"
   },
-  "repository": "git@github.com:mattperkins/chatQL.git",
-  "author": "mattperkins <github@mattperkins.com>"
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
 }
