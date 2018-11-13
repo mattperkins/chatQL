@@ -10,3 +10,26 @@
 
 # DEPLOY 
 ## yarn build
+
+## GRAPHQL
+
+### Root Query
+```
+{
+  users {
+    id
+    name
+    email
+  }
+}
+```
+### Mutation
+```
+mutation {
+    addUser(email: "bob@email.com") {
+      id
+      email
+      name
+    }
+  }
+```
