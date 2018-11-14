@@ -23,6 +23,20 @@ query {
   }
 }
 ```
+
+
+### getUser Query
+```
+query getUser($id: ID!){
+  user(id: $id) {
+    email
+    name
+  }
+}
+# QUERY VARIABLES (graphiql bottom GUI tray) { "id": "1" }
+```
+
+
 ### Mutation
 ```
 mutation {
