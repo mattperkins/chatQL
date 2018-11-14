@@ -7,6 +7,11 @@ const testDb = {
  users: [
   { id: '1', email: 'fred@email.com', name: 'Fred'},
   { id: '2', email: 'sandy@email.com', name: 'Sandy'}
+ ],
+ messages: [
+  { id: '1', userId: '1', body: 'hello, world', createdAt: Date.now() },
+  { id: '2', userId: '2', body: 'oh, hi', createdAt: Date.now() },
+  { id: '3', userId: '3', body: 'what\'s up?', createdAt: Date.now() },
  ]
 }
 
