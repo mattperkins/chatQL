@@ -52,10 +52,14 @@ const typeDefs = gql`
 `
 // object literal
 const resolvers = {
- users: () => testDb.users.map(user => new User(user)),
- user: args => testDb.users.find(user => user.id === args.id),
- messages: () => testDb.messages,
- addUser: ({ email, name }) => {
+ // keys
+ Query: {
+  users: () => testDb.users,
+  user: (root, { id }) => testDb.users.find(user => user.id === args.id),
+  messages: () => testDb.messages
+ },
+ Mutation: {
+  addUser: ( root, { email, name }) => {
   const user = {
    id: crypto.randomBytes(10).toString('hex'),
    email,
@@ -65,17 +69,7 @@ const resolvers = {
   
   return user
  }
-}
+ }
 
-const app = express()
-
-// middleware
-app.use('/graphql', graphQlHTTP({
- schema,
- rootValue,
- graphiql: true
-}))
-
-const PORT = 3000
-  app.listen(PORT, () => console.log(`running on ${PORT}`))
+} // resolvers
 
