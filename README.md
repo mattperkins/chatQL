@@ -11,8 +11,8 @@
 # INSTALL 
 ## yarn 
 
-# RUN 
-## npx supervisor .
+# RUN
+## yarn watch
 
 # SERVER/DEV
 ## ENDPOINTS 
@@ -20,6 +20,8 @@
 
 # DEPLOY 
 ## yarn build
+
+***************************************************
 
 ## GRAPHQL
 
