@@ -66,6 +66,7 @@ const resolvers = {
 
 } // resolvers
 
+// Replace 'resolvers' with 'mocks:true' for dummy data if no inline test DB present above.
 const server = new ApolloServer({ typeDefs, resolvers })
 
 server.listen().then(({ url }) => console.log(url));
