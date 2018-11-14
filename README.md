@@ -4,9 +4,9 @@
 # RUN 
 ## npx supervisor .
 
-# SERVER
+# SERVER/DEV
 ## ENDPOINTS 
-### localhost:3000/graphql
+### localhost:4000
 
 # DEPLOY 
 ## yarn build
