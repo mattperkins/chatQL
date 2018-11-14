@@ -50,7 +50,7 @@ const typeDefs = gql`
   createdAt: String!
  }
 `
-
+// object literal
 const resolvers = {
  users: () => testDb.users.map(user => new User(user)),
  user: args => testDb.users.find(user => user.id === args.id),
