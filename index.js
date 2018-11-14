@@ -25,6 +25,7 @@ class User {
  }
 }
 
+// Define Schema with a bunch of Type definitions
 // [ !]! denotes neither array nor object can be NULL
 const schema = buildSchema(`
  type Query {
