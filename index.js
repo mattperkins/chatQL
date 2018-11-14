@@ -51,8 +51,7 @@ const typeDefs = gql`
  }
 `
 
-// resolvers
-const rootValue = {
+const resolvers = {
  users: () => testDb.users.map(user => new User(user)),
  user: args => testDb.users.find(user => user.id === args.id),
  messages: () => testDb.messages,
