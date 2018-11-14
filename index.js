@@ -54,7 +54,7 @@ const schema = buildSchema(`
 
 // resolvers
 const rootValue = {
- users: () => testDb.users,
+ users: () => testDb.users.map(user => new User(user)),
  user: args => testDb.users.find(user => user.id === args.id),
  messages: () => testDb.messages,
  addUser: ({ email, name }) => {
