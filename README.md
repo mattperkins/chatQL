@@ -2,7 +2,7 @@
 ## Built with MERNQL Stack
 
 ## MVP
-* Sign up/Sign in/ Password reset
+* Sign up/Sign in/Password reset
 * Direct messaging (1 to 1)
 * Private Group messaging (2+)
 * File sharing (images & text)
