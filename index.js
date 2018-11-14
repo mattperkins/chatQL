@@ -15,6 +15,16 @@ const testDb = {
  ]
 }
 
+// to access nested data : users > messages 
+class User {
+ constructor(user) {
+  Object.assign(this, user)
+ }
+ messages() {
+  return testDb.messages.filter(message => message.userId === this.id)
+ }
+}
+
 // [ !]! denotes neither array nor object can be NULL
 const schema = buildSchema(`
  type Query {
@@ -32,6 +42,7 @@ const schema = buildSchema(`
   email: String!
   name: String
   avatarUrl: String
+  messages: [Message!]! 
  }
 
  type Message {
