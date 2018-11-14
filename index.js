@@ -13,6 +13,7 @@ const testDb = {
 const schema = buildSchema(`
  type Query {
   users: [User!]!
+  user(id: ID!): User
  }
 
  type Mutation {
@@ -30,6 +31,7 @@ const schema = buildSchema(`
 // resolvers
 const rootValue = {
  users: () => testDb.users,
+ user: args => testDb.users.find(user => user.id === args.id),
  addUser: ({ email, name }) => {
   const user = {
    id: crypto.randomBytes(10).toString('hex'),
