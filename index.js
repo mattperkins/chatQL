@@ -69,7 +69,13 @@ const resolvers = {
   
   return user
  }
+ },
+ User: {
+  messages: user => testDb.messages.filter(message => message.userId === user.id)
  }
 
 } // resolvers
 
+const server = new ApolloServer({ typeDefs, resolvers })
+
+server.listen().then(({ url }) => console.log(url));
