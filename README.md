@@ -20,6 +20,9 @@ query {
     id
     name
     email
+    messages {
+      body
+    }
   }
 }
 ```
