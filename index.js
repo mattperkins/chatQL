@@ -15,10 +15,12 @@ const testDb = {
  ]
 }
 
+// [ !]! denotes neither array nor object can be NULL
 const schema = buildSchema(`
  type Query {
   users: [User!]!
   user(id: ID!): User
+  messages: [Message!]! 
  }
 
  type Mutation {
@@ -31,12 +33,19 @@ const schema = buildSchema(`
   name: String
   avatarUrl: String
  }
+
+ type Message {
+  id: ID!
+  body: String!
+  createdAt: String!
+ }
 `)
 
 // resolvers
 const rootValue = {
  users: () => testDb.users,
  user: args => testDb.users.find(user => user.id === args.id),
+ messages: () => testDb.messages,
  addUser: ({ email, name }) => {
   const user = {
    id: crypto.randomBytes(10).toString('hex'),
