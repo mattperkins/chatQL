@@ -25,7 +25,7 @@ class User {
 
 // Define Schema with a bunch of Type definitions
 // [ !]! denotes neither array nor object can be NULL
-const typeDefs = buildSchema(`
+const typeDefs = gql`
  type Query {
   users: [User!]!
   user(id: ID!): User
@@ -49,7 +49,7 @@ const typeDefs = buildSchema(`
   body: String!
   createdAt: String!
  }
-`)
+`
 
 // resolvers
 const rootValue = {
