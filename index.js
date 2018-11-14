@@ -13,16 +13,6 @@ const testDb = {
  ]
 }
 
-// to access nested data : users > messages 
-class User {
- constructor(user) {
-  Object.assign(this, user)
- }
- messages() {
-  return testDb.messages.filter(message => message.userId === this.id)
- }
-}
-
 // Define Schema with a bunch of Type definitions
 // [ !]! denotes neither array nor object can be NULL
 const typeDefs = gql`
