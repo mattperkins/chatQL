@@ -45,7 +45,7 @@ const resolvers = {
  // keys
  Query: {
   users: () => testDb.users,
-  user: (root, { id }) => testDb.users.find(user => user.id === args.id),
+  user: (root, { id }) => testDb.users.find(user => user.id === user.id),
   messages: () => testDb.messages
  },
  Mutation: {
