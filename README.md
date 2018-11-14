@@ -39,7 +39,7 @@ query getUser($id: ID!){
 
 ### All messages Query
 ```
-{
+query {
     messages {
       id
       body
