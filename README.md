@@ -27,6 +27,10 @@ query {
 }
 ```
 
+### mock graphql mechanics
+```
+curl -X POST -H "Content-Type: application/json" -d '{ "query" : "{ users { id email } }" }' localhost:3000/graphql -w "\n"
+```
 
 ### getUser Query
 ```
