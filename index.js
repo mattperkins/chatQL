@@ -1,6 +1,4 @@
-const express = require('express')
-const graphQlHTTP = require('express-graphql')
-const { buildSchema } = require('graphql')
+const { ApolloServer, gql} require('apollo-server')
 const crypto = require('crypto')
 
 const testDb = {
