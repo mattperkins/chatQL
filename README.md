@@ -37,6 +37,18 @@ query getUser($id: ID!){
 { "id": "1" }
 ```
 
+### All messages Query
+```
+{
+    messages {
+      id
+      body
+      createdAt
+	}
+}
+```
+
+
 
 ### Mutation
 ```
