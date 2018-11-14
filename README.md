@@ -33,7 +33,8 @@ query getUser($id: ID!){
     name
   }
 }
-# QUERY VARIABLES (graphiql bottom GUI tray) { "id": "1" }
+# QUERY VARIABLES (graphiql bottom GUI tray):
+{ "id": "1" }
 ```
 
 
