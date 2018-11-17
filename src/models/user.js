@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   username: String,
   name: String
 }, {
+// createdAt and updatedAt implicit when model updates
   timestamps: true
 })
 
