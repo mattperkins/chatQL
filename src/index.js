@@ -1,14 +1,16 @@
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
+import mongoose from 'mongoose'
 import typeDefs from './typeDefs'
 import resolvers from './resolvers'
+import { APP_PORT, IN_PROD, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } from '../env.js'
 
-const {
-  APP_PORT = 4000,
-  NODE_ENV = 'development'
-} = process.env
-
-const IN_PROD = NODE_ENV === 'production'
+mongoose.connect(
+  `
+  mongodb://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+  `,
+  { useNewUrlParser: true }
+)
 
 const app = express()
 app.disable('x-powered-by')
