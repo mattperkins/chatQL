@@ -6,7 +6,7 @@
   "author": "DORMshed",
   "---": "---",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon"
+    "dev": "NODE_ENV=development nodemon -r esm"
   },
   "dependencies": {
     "apollo-server-express": "^2.2.2",
