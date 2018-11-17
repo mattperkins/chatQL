@@ -1,5 +1,5 @@
-const { ApolloServer, gql } = require('apollo-server-express');
-const { typeDefs, resolvers } = require('./schema');
+import { ApolloServer, gql } from 'apollo-server-express'
+import { typeDefs, resolvers } from './schema'
 
 const server = new ApolloServer({
   // These will be defined for both new or existing servers
