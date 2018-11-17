@@ -1,16 +1,23 @@
-import { ApolloServer, gql } from 'apollo-server-express'
+import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
+import { typeDefs } from './typeDefs'
+import { resolvers } from './resolvers'
+
+const {
+  APP_PORT = 4000,
+  NODE_ENV = 'development'
+} = process.env
 
 const app = express()
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers
 })
 
 // app is from an existing express app
-server.applyMiddleware({ app }) 
+server.applyMiddleware({ app })
 
-app.listen({ port: 4000 }, () =>
-  console.log(`Server endpoint: http://localhost:4000${server.graphqlPath}`)
+app.listen({ port: APP_PORT }, () =>
+  console.log(`Server endpoint: http://localhost:${APP_PORT}${server.graphqlPath}`)
 )
