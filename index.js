@@ -1,7 +1,7 @@
 const { ApolloServer, gql} = require('apollo-server')
 const crypto = require('crypto')
 
-// inMemory database
+// In Memory database
 const testDb = {
  users: [
   { id: '1', email: 'fred@email.com', name: 'Fred'},
