@@ -11,6 +11,7 @@ const {
 const IN_PROD = NODE_ENV === 'production'
 
 const app = express()
+app.disable('x-powered-by')
 
 const server = new ApolloServer({
   typeDefs,
