@@ -10,10 +10,13 @@ export default {
       return User.find({})
     },
     user: (root, { id }, context, info) => {
+      // Auth, Projection, Sanitisation
       // Utility method
       if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new UserInputError(`${id} is not a valid user ID.`)
       }
+
+      return User.findById(id)
     }
   },
   Mutation: {
