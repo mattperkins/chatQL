@@ -2,7 +2,14 @@ import mongoose from 'mongoose'
 import { hash } from 'bcryptjs'
 
 const userSchema = new mongoose.Schema({
-  email: String,
+  email: {
+    type: String,
+    validate: {
+      // check to see if email address already exists
+      validator: async email => await User.where({ email }).countDocuments() === 0,
+      message: ({ value }) => `Email ${value} has already been taken` // need to add SSL Security
+    }
+  },
   username: String,
   name: String,
   // stores password in DB not exposing to graphql API
@@ -18,4 +25,6 @@ userSchema.pre('save', async function (next) {
     this.password = await hash(this.password, 10) // args.password from resolver
   }
 })
-export default mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema)
+
+export default User
