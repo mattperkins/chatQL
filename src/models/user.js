@@ -13,9 +13,13 @@ const userSchema = new mongoose.Schema({
 })
 
 // a hook called before model is saved
-userSchema.pre('save', function (next) {
+userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
-    hash(this.password) // args.password from resolver
+    try {
+      this.password = await hash(this.password, 10) // args.password from resolver
+    } catch (err) {
+      next(err)
+    }
   }
   next()
 })
