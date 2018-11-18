@@ -21,7 +21,10 @@ export default {
   },
   Mutation: {
     signUp: (root, args, context, info) => {
-      
+      // !Auth, Validation
+      return User.create()
     }
   }
 }
+
+// args = an object containing all parameters passed from the client
