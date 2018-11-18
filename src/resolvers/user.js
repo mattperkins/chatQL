@@ -22,7 +22,7 @@ export default {
   Mutation: {
     signUp: (root, args, context, info) => {
       // !Auth, Validation
-      return User.create()
+      return User.create(args)
     }
   }
 }
