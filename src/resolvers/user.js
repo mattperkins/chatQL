@@ -4,7 +4,7 @@ import { User } from '../models'
 
 export default {
   Query: {
-    users: (root, arg, context, info) => {
+    users: (root, args, context, info) => {
       // Auth, Projection, Pagination, Sanitisation
 
       return User.find({})
@@ -20,8 +20,8 @@ export default {
     }
   },
   Mutation: {
-    signUp: (root, arg, context, info) => {
-
+    signUp: (root, args, context, info) => {
+      
     }
   }
 }
