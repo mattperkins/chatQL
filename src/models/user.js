@@ -15,13 +15,7 @@ const userSchema = new mongoose.Schema({
 // a hook called before model is saved
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
-    try {
-      this.password = await hash(this.password, 10) // args.password from resolver
-    } catch (err) {
-      next(err)
-    }
+    this.password = await hash(this.password, 10) // args.password from resolver
   }
-  next()
 })
-
 export default mongoose.model('User', userSchema)
