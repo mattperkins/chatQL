@@ -9,7 +9,7 @@ export default Joi.object().keys({
     language: {
       string: {
         regex: {
-          base: 'Must have at least on lowercase letter, oneupper case letter, one digit and one specical character'
+          base: 'Must have at least on lowercase letter, one uppercase letter, one digit and one specical character'
         }
       }
     }
