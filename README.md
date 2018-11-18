@@ -79,3 +79,15 @@ mutation {
     }
   }
 ```
+
+### Mutation PHASE 2
+```
+mutation {
+  signUp(email:"fred@email.com", username:"fred", name:"Fred", password:"password") {
+    id
+    name
+    email
+    username
+    createdAt
+  }
+}
