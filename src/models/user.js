@@ -6,11 +6,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     validate: {
       // check to see if email address already exists
-      validator: async email => await User.where({ email }).countDocuments() === 0,
+      validator: email => User.doesntExist({ email }),
       message: ({ value }) => `Email ${value} has already been taken` // later: need to add SSL Security
     }
   },
-  username: String,
+  username: {
+    type: String,
+    validate: {
+      // check to see if username address already exists
+      validator: username => User.doesntExist({ username }),
+      message: ({ value }) => `Username ${value} has already been taken` // later: need to add SSL Security
+    }
+  },
   name: String,
   // stores password in DB not exposing to graphql API
   password: String
@@ -25,6 +32,11 @@ userSchema.pre('save', async function (next) {
     this.password = await hash(this.password, 10) // args.password from resolver
   }
 })
+
+userSchema.statics.doesntExist = async function (options) {
+  return await this.where(options).countDocuments() === 0
+}
+
 const User = mongoose.model('User', userSchema)
 
 export default User
