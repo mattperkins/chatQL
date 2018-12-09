@@ -12,7 +12,10 @@
 ## yarn 
 
 # RUN
-## yarn watch
+## yarn start
+
+# DEV
+## yarn dev 
 
 # SERVER/DEV
 ## ENDPOINTS 
