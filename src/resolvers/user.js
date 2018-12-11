@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import mongoose from 'mongoose'
 import { UserInputError } from 'apollo-server-express'
-import { SignUp } from '../schemas_joi'
+import { signUp } from '../schemas_joi'
 import { User } from '../models'
 
 export default {
