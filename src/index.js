@@ -1,9 +1,11 @@
-import express from 'express'
-import { ApolloServer } from 'apollo-server-express'
 import mongoose from 'mongoose'
+import express from 'express'
+import session from 'express-session'
+import connectRedis from 'connect-redis'
+import { ApolloServer } from 'apollo-server-express'
 import typeDefs from './typeDefs'
 import resolvers from './resolvers'
-import { APP_PORT, IN_PROD, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } from '../env.js'
+import { APP_PORT, IN_PROD, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, SESS_NAME, SESS_LIFETIME, SESS_SECRET, REDIS_HOST, REDIS_PORT, REDIS_PASSWORD } from '../env.js'
 
 // self invoking async function
 (async () => {
@@ -17,6 +19,26 @@ import { APP_PORT, IN_PROD, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME 
 
     const app = express()
     app.disable('x-powered-by')
+
+    const RedisStore = connectRedis(session)
+    const store = new RedisStore({
+      host: REDIS_HOST,
+      port: REDIS_PORT,
+      pass: REDIS_PASSWORD
+    })
+
+    app.use(session({
+      store,
+      name: SESS_NAME,
+      secret: SESS_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        maxAge: SESS_LIFETIME,
+        sameSite: true,
+        secure: IN_PROD
+      }
+    }))
 
     const server = new ApolloServer({
       typeDefs,
