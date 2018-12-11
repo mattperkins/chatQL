@@ -1,17 +1,29 @@
 import Joi from 'joi'
 
-// object schema definition
-export default Joi.object().keys({
-  email: Joi.string().email().required().label('Email'),
-  username: Joi.string().alphanum().min(3).max(50).required().label('Username'),
-  name: Joi.string().max(254).required().label('Name'),
-  password: Joi.string().min(8).max(30).regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d).*$/).required().label('Password').options({
-    language: {
-      string: {
-        regex: {
-          base: 'Must have at least one lowercase letter, one uppercase letter and one digit'
-        }
+const email = Joi.string().email().required().label('Email')
+
+const username = Joi.string().alphanum().min(3).max(50).required().label('Username')
+
+const name = Joi.string().max(254).required().label('Name')
+
+const password = Joi.string().min(8).max(30).regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d).*$/).required().label('Password').options({
+  language: {
+    string: {
+      regex: {
+        base: 'Must have at least one lowercase letter, one uppercase letter and one digit'
       }
     }
-  })
+  }
+})
+
+export const signUp = Joi.object().keys({
+  email, username, name, password
+})
+
+export const signIn = Joi.object().keys({
+  email, password
+})
+
+export const signOut = Joi.object().keys({
+  email, password
 })
